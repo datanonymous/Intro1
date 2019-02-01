@@ -9,6 +9,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class Fragment3: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment3xml,appbar,false)
+        return inflater.inflate(R.layout.fragment3xml,container,false)
     }
 }

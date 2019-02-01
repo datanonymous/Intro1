@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -39,6 +40,14 @@ class MainActivity : AppCompatActivity() {
 
         // Set up the ViewPager with the sections adapter.
         container.adapter = mSectionsPagerAdapter
+
+        //https://alexdunn.org/2017/07/11/android-kotlin-create-a-tablayout/
+        val tabLayout = findViewById<View>(R.id.TabLayout) as TabLayout //TabLayout in purple is the name of the folder under the container that holds the fragments
+        tabLayout.setupWithViewPager(container)
+        // set icons
+        tabLayout.getTabAt(0)!!.setIcon(R.drawable.mouse)
+        tabLayout.getTabAt(1)!!.setIcon(R.drawable.spray)
+        tabLayout.getTabAt(2)!!.setIcon(R.drawable.dpestcontrol)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -97,10 +106,11 @@ class MainActivity : AppCompatActivity() {
         override fun getPageTitle(position: Int): CharSequence? {
             when(position){
                 // https://www.youtube.com/watch?v=clPUiBCLAKs
-                0->return "Frag1"
-                1->return "Frag2"
-                2->return "Frag3"
-                else->return "Frag1"
+                // Name tabs here
+                0->return "Captures"
+                1->return "Applications"
+                2->return "Comments"
+                else->return "Captures"
             }
         }
 
